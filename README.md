@@ -5,7 +5,7 @@ Available at [URL](https://deloitte-api.ue.r.appspot.com/)
 
 The APIs have been built using Flask and deployed using Google App Engine. Python has been used, since it is one of the preferred languages in the cloud engineering team. Flask has been used, since it is extremely easy to directly get into the business logic and make API endpoints. Google App Engine has been used, since it allows to easily deploy scalable applications.
 
-No authentication has been added, since it is a private repository.
+No authentication has been added, since server is live only on request. 
 
 
 # Functionalities supported
