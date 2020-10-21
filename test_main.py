@@ -162,6 +162,36 @@ class Test(TestCase):
         self.assertEqual(response.json["translated_message"],
                          "testing cloud&copy is amazing")
 
+    def test_translate_html(self):
+        tester = app.test_client(self)
+
+        # Does not support put request
+        response = tester.put("/translate/html")
+        self.assertEqual(response.status_code, 405)
+
+        # Does not support post request
+        response = tester.post("/translate/html")
+        self.assertEqual(response.status_code, 405)
+
+        # Does not support delete request
+        response = tester.delete("/translate/html")
+        self.assertEqual(response.status_code, 405)
+
+        # Get request without target string after "/html/" is treated as a standard
+        # translate request with "html" as a translation string
+        response = tester.get("/translate/html")
+        self.assertEqual(response.status_code, 200)
+        self.assertIn("translated_message", response.json)
+        self.assertEqual(response.json["translated_message"], "html")
+
+        # &copy is only added to string after keyword
+        # If no string exists after keyword, return the entered string
+        response = tester.get("/translate/html/Google is awesome!")
+        self.assertEqual(response.status_code, 200)
+        self.assertIsNone(response.json)
+        self.assertIn(b"Google", response.data)
+        self.assertIn(b"&copy", response.data)
+
 
 if __name__ == '__main__':
     main()

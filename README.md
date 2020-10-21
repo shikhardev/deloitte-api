@@ -10,7 +10,7 @@ No authentication has been added, since server is live only on request.
 
 # Functionalities supported
 ## Translate
-Translates the input string into the specified format with a copyright symbol.
+Translates the input string into the specified format with a copyright symbol. Endpoints have been created to render HTML as well as RESTful responses.
     
     Sample Input:  Google Cloud is awesome!
     Sample Output: Google Cloud© is awesome!
@@ -62,7 +62,7 @@ Lists currently supported keywords for translation.
 
 ```GET /translate/<input_string>```
 
-Translates input string. Insert input string after `/translate/`  without any angle brackets.
+Translates input string. Insert input string after `/translate/`  without any angle brackets. Responds with a RESTful JSON.
 
     Example
     Request: GET request to "https://deloitte-api.ue.r.appspot.com/translate/Google Cloud is amazing!"
@@ -70,6 +70,16 @@ Translates input string. Insert input string after `/translate/`  without any an
     {
         "translated_message": "Google Cloud&copy is amazing!"
     }
+    
+    
+```GET /translate/html/<input_string>```
+
+Translates input string. Responds with an HTML tag. If request is sent through a browser, this endpoint renders a human friendly response.
+
+    Example
+    Request: GET request to "https://deloitte-api.ue.r.appspot.com/translate/html/Google Cloud is amazing!"
+    Response: <p> Google Cloud&copy is amazing! </p>
+    
         
 ----------
 ## Keys

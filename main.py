@@ -104,7 +104,7 @@ def keys_functionalities():
 
 
 @app.route("/translate/<string:input_string>", methods=["GET"])
-def translate(input_string):
+def translate(input_string: str):
     """
     Assumes space separated words as input parameter.
     Translated response match case to the input string.
@@ -126,6 +126,16 @@ def translate(input_string):
         if i.capitalize() in keywords.register:
             add_copy = True
     return {"translated_message": " ".join(res).lstrip()}
+
+
+@app.route("/translate/html/<string:input_string>", methods=["GET"])
+def translate_render_html(input_string):
+    """
+    Returns an html friendly string as a response, instead of json.
+    Refer to the translate(input_string: str) function for details about translation
+    """
+    translation = translate(input_string)
+    return "<p> {} </p>".format(translation['translated_message'])
 
 
 if __name__ == '__main__':
