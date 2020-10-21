@@ -9,28 +9,28 @@ No authentication has been added, since it is a private repository.
 
 
 # Functionalities supported
-Translate
-
- - Translates the input string into the specified format with a copyright symbol.
-
+## Translate
+Translates the input string into the specified format with a copyright symbol.
     
     Sample Input:  Google Cloud is awesome!
     Sample Output: Google Cloud© is awesome!
     
+    
     Sample Input:  Google
     Sample Output: Google
     
+    
     Sample Input:  Amazon EKS is awesome!
     Sample Output: Amazon EKS© is awesome!
+    
     
     Sample Input:  amazon EKS is awesome!
     Sample Output: amazon EKS© is awesome!
 
 
-Keywords
-- Add keyword, Remove keyword, Reset to default keywords
-    Allows users to add new or or delete existing keywords for which translation can be supported.
-
+## Keywords
+Allows users to add new or or delete existing keywords for which translation can be supported.
+Functionality to Reset to default keywords also provided. 
 Keywords are tied to a session and not written to any database for now.
 
 
@@ -39,6 +39,7 @@ Keywords are tied to a session and not written to any database for now.
 ## Index 
 
 ```GET /```
+
 Lists currently supported keywords for translation.
 
 
@@ -60,6 +61,7 @@ Lists currently supported keywords for translation.
 ## Translate 
 
 ```GET /translate/<input_string>```
+
 Translates input string. Insert input string after `/translate/`  without any angle brackets.
 
     Example
@@ -73,6 +75,7 @@ Translates input string. Insert input string after `/translate/`  without any an
 ## Keys
 
  ```GET /keys```
+ 
 Lists currently supported keywords for translation.
 
     Example
@@ -91,6 +94,7 @@ Lists currently supported keywords for translation.
      
 
 ```PUT or POST /keys/<keyword>```
+
 Adds <keyword> to the list of supported translation keywords. The new keyword is to be added without angle brackets.
 
     Example
@@ -110,6 +114,7 @@ Adds <keyword> to the list of supported translation keywords. The new keyword is
 
 
 ```DELETE /keys/<keyword>```
+
 Deletes <keyword> from the list of supported translation. The keyword is to be added without angle brackets.
 
     Example
@@ -135,6 +140,7 @@ Deletes <keyword> from the list of supported translation. The keyword is to be a
     }
 
 ```DELETE /keys```
+
 Resets the list of supported keywords to the default list of [Oracle, Google, Microsoft, Amazon, Deloitte]
 
     Example
