@@ -71,6 +71,7 @@ Translates input string. Insert input string after `/translate/`  without any an
         "translated_message": "Google Cloud&copy is amazing!"
     }
     
+----------
     
 ```GET /translate/html/<input_string>```
 
@@ -102,7 +103,7 @@ Lists currently supported keywords for translation.
     }
         
      
-
+----------
 ```PUT or POST /keys/<keyword>```
 
 Adds <keyword> to the list of supported translation keywords. The new keyword is to be added without angle brackets.
@@ -122,7 +123,7 @@ Adds <keyword> to the list of supported translation keywords. The new keyword is
         "success": true
     }
 
-
+----------
 ```DELETE /keys/<keyword>```
 
 Deletes <keyword> from the list of supported translation. The keyword is to be added without angle brackets.
@@ -149,6 +150,7 @@ Deletes <keyword> from the list of supported translation. The keyword is to be a
         'error': 'keyword does not exist'
     }
 
+----------
 ```DELETE /keys```
 
 Resets the list of supported keywords to the default list of [Oracle, Google, Microsoft, Amazon, Deloitte]
