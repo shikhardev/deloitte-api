@@ -31,7 +31,7 @@ Translates the input string into the specified format with a copyright symbol. E
 ## Keywords
 Allows users to add new or or delete existing keywords for which translation can be supported.
 Functionality to Reset to default keywords also provided. 
-Keywords are tied to a session and not written to any database for now.
+Keywords are stored in memory and not written to any database for now.
 
 
 
